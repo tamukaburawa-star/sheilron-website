@@ -197,3 +197,18 @@ footer {
 
 }
 
+.google-btn {
+  display: inline-block;
+  background: #1a73e8;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.google-btn:hover {
+  background: #1558b0;
+}
+
