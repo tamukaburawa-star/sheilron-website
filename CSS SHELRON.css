@@ -110,34 +110,42 @@ section h2 {
     color: #2c5364;
 }
 
-/* Gallery layout */
+/* Gallery grid */
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    grid-auto-danse: 420px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
 }
 
+/* Images – FIXED SIZE */
 .gallery-grid img {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-    display: block;
+  width: 100%;
+  height: 220px;        /* 👈 THIS STOPS HUGE IMAGES */
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
 }
 
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-    .galler-grid a {
-	display: inline-block;
-	height: auto;
+/* Tablet */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery-grid img {
+    height: 180px;
+  }
 }
 
+/* Phone */
 @media (max-width: 480px) {
-    .gallery-grid {
-        grid-template-columns: repeat(3, 1fr;
-    }
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery-grid img {
+    height: 140px;     /* 👈 CRITICAL */
+  }
 }
 
 /* Contact */
@@ -212,4 +220,5 @@ footer {
   width: 100%;
   height: 100%;
   background: url("https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg") center/60% no-repeat;
+
 }
