@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sheilron Clothing | Zimbabwe's Premier Manufacturer</title>
+    <title>Sheilron Clothing | Bulk Uniform Manufacturers</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS SHELRON.css">
@@ -21,11 +21,11 @@
                 <span class="bar"></span>
             </div>
             <ul class="nav-links">
-                <li><a href="#industries">Industries</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#bulk">Bulk & Contracts</a></li>
                 <li><a href="#catalog">Catalog</a></li>
-                <li><a href="#workshop">Our Workshop</a></li>
-                <li><a href="#contact" class="btn-nav">Contact</a></li>
+                <li><a href="#workshop">Workshop</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button onclick="openLogin()" class="btn-login"><i class="fa-brands fa-google"></i> Client Portal</button></li>
             </ul>
         </nav>
     </header>
@@ -33,204 +33,173 @@
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Work Driven By Passion</h1>
-            <p>We don't just sell clothes. We manufacture identity. From 10 Conald Rd to the rest of Zimbabwe.</p>
-            
+            <h1>Manufacturing Identity</h1>
+            <p>Zimbabwe's premier supplier for Schools, Corporates, and Construction.</p>
             <div class="hero-btns">
-                <a href="https://wa.me/263778279401?text=Hi%20Sheilron,%20I%20would%20like%20to%20request%20a%20quote." class="btn-primary">Request a Quote</a>
-                <a href="https://wa.me/263778279401?text=Hi,%20I%20am%20interested%20in%20seeing%20a%20sample." class="btn-secondary">Get a Sample</a>
-                <a href="https://wa.me/263778279401?text=Hi,%20I%20want%20to%20book%20a%20consultation." class="btn-outline">Book Consultation</a>
+                <a href="#contact" class="btn-primary">Request Bulk Quote</a>
+                <a href="#catalog" class="btn-outline">View Catalog</a>
             </div>
         </div>
     </section>
 
-    <section id="about" class="section-padding">
+    <section id="bulk" class="section-padding">
+        <div class="section-title">
+            <h2>Bulk Programs & Contracts</h2>
+            <p>We supply the biggest institutions in Zimbabwe. Here is how.</p>
+        </div>
+        <div class="bulk-grid">
+            <div class="bulk-card">
+                <div class="icon-box"><i class="fa-solid fa-school"></i></div>
+                <h3>School Bulk Programs</h3>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Tiered discounts for entire schools</li>
+                    <li><i class="fa-solid fa-check"></i> Scheduled seasonal production</li>
+                    <li><i class="fa-solid fa-check"></i> Size profile storage</li>
+                </ul>
+            </div>
+            <div class="bulk-card highlight">
+                <div class="badge">Most Popular</div>
+                <div class="icon-box"><i class="fa-solid fa-file-signature"></i></div>
+                <h3>Annual Supply Contracts</h3>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Locked-in pricing for 12 months</li>
+                    <li><i class="fa-solid fa-check"></i> Priority production queue</li>
+                    <li><i class="fa-solid fa-check"></i> Dedicated account manager</li>
+                </ul>
+            </div>
+            <div class="bulk-card">
+                <div class="icon-box"><i class="fa-solid fa-helmet-safety"></i></div>
+                <h3>Site Rollouts</h3>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Full PPE kits per employee</li>
+                    <li><i class="fa-solid fa-check"></i> Fast replacement for damaged gear</li>
+                    <li><i class="fa-solid fa-check"></i> Branding & Logo safety compliance</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light">
         <div class="container-grid">
             <div class="text-block">
-                <span class="tag">Who We Are</span>
-                <h2>More Than Just Threads</h2>
-                <p>Sheilron wasn't started to just add to the noise. Established in 2013 and fully incorporated in 2018, we are a <strong>women-empowered business</strong> built on a simple promise: Reliability.</p>
-                <p>We know the problem you face: Suppliers who promise the world and deliver late, poor-quality uniforms. We solve that with our <strong>20+ devoted staff</strong> and industrial capacity right here in Graniteside.</p>
+                <span class="tag">For Procurement Officers</span>
+                <h2>Why Choose Sheilron?</h2>
+                <p>We understand that your job is to get quality goods, on time, within budget. We make that easy.</p>
                 
-                <div class="stats-grid">
-                    <div class="stat">
-                        <h3>10+</h3>
-                        <p>Years Experience</p>
+                <div class="trust-list">
+                    <div class="trust-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <h4>On-Time Delivery</h4>
+                            <p>We own our machines. We control the schedule. No excuses.</p>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <h3>100%</h3>
-                        <p>Zimbabwean</p>
+                    <div class="trust-item">
+                        <i class="fa-solid fa-ruler-combined"></i>
+                        <div>
+                            <h4>Consistent Sizing</h4>
+                            <p>A "Medium" today is the same "Medium" next year.</p>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <h3>No</h3>
-                        <p>Minimum Order</p>
+                    <div class="trust-item">
+                        <i class="fa-solid fa-handshake"></i>
+                        <div>
+                            <h4>No Middlemen</h4>
+                            <p>You deal directly with the factory. You save money.</p>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="image-block">
-                <img src="pic%202.jpg" alt="Sheilron Team at Work">
-                <span class="img-label">Our Production Team</span>
+                <img src="pic%202.jpg" alt="Production Team">
             </div>
         </div>
     </section>
 
-    <section id="industries" class="section-padding bg-light">
-        <div class="section-title">
-            <h2>Who We Serve</h2>
-            <p>Tailored solutions for your specific industry.</p>
-        </div>
-        <div class="industry-grid">
-            <div class="ind-card">
-                <i class="fa-solid fa-graduation-cap"></i>
-                <h3>Schools</h3>
-                <p>Durable uniforms that last the whole term. Jerseys, tracksuits, and shorts.</p>
-                <a href="#catalog">View School Gear &rarr;</a>
-            </div>
-            <div class="ind-card">
-                <i class="fa-solid fa-building-user"></i>
-                <h3>Corporates</h3>
-                <p>Sharp suits and branded wear that elevate your company image.</p>
-                <a href="#catalog">View Corporate &rarr;</a>
-            </div>
-            <div class="ind-card">
-                <i class="fa-solid fa-user-doctor"></i>
-                <h3>Hospitals</h3>
-                <p>Comfortable, hygiene-grade scrubs and lab coats for long shifts.</p>
-                <a href="#catalog">View Scrubs &rarr;</a>
-            </div>
-            <div class="ind-card">
-                <i class="fa-solid fa-helmet-safety"></i>
-                <h3>Construction</h3>
-                <p>High-visibility work suits and safety gear that meet regulations.</p>
-                <a href="#catalog">View Safety Wear &rarr;</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="section-padding">
-        <div class="section-title">
-            <h2>Our Core Services</h2>
-        </div>
-        <div class="services-wrapper">
-            <div class="srv-box">
-                <div class="icon"><i class="fa-solid fa-tape"></i></div>
-                <h3>Industrial Tailoring</h3>
-                <p>We own the machines. From buttonholes to industrial sewing, we make it from scratch.</p>
-            </div>
-            <div class="srv-box">
-                <div class="icon"><i class="fa-solid fa-tag"></i></div>
-                <h3>Corporate Branding</h3>
-                <p>Embroidery (8-head machines) and screen printing. Your logo, exactly where you want it.</p>
-            </div>
-            <div class="srv-box">
-                <div class="icon"><i class="fa-solid fa-gift"></i></div>
-                <h3>Corporate Gifting</h3>
-                <p>Diaries, pens, and branded gifts to keep your clients happy.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="catalog" class="section-padding bg-light">
+    <section id="catalog" class="section-padding">
         <div class="section-title">
             <h2>Product Catalog</h2>
-            <p>Browse our categories. Click to get a price instantly.</p>
+            <p>Order individual items or save with our <strong>Uniform Kits</strong>.</p>
         </div>
 
-        <h3 class="cat-header">Schools & Sports</h3>
+        <h3 class="cat-header">Best Value Kits (Packages)</h3>
         <div class="catalog-grid">
             <div class="product-card">
-                <img src="jersey.png" alt="School Jersey"> <div class="p-info">
-                    <h4>School Jerseys</h4>
-                    <a href="https://wa.me/263778279401?text=Price%20for%20Jerseys?" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> Ask Price</a>
+                <img src="jersey.png" alt="School Kit">
+                <div class="p-info">
+                    <h4>School Starter Kit</h4>
+                    <p class="kit-desc">Shirt + Shorts + Jersey + Tie</p>
+                    <a href="https://wa.me/263778279401?text=Quote%20for%20School%20Starter%20Kit?" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> Get Kit Price</a>
                 </div>
             </div>
             <div class="product-card">
-                <img src="pic12.jpg" alt="Tracksuit">
+                <img src="pic%204.jpg" alt="Construction Kit">
                 <div class="p-info">
-                    <h4>Tracksuits</h4>
-                    <a href="https://wa.me/263778279401?text=Price%20for%20Tracksuits?" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> Ask Price</a>
+                    <h4>Construction Kit</h4>
+                    <p class="kit-desc">Overall + Reflective Vest + Cap</p>
+                    <a href="https://wa.me/263778279401?text=Quote%20for%20Construction%20Kit?" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> Get Kit Price</a>
                 </div>
             </div>
             <div class="product-card">
-                <img src="pic15.jpg" alt="School Wear">
+                <img src="blazer.jpg" alt="Corporate Kit">
                 <div class="p-info">
-                    <h4>School Wear</h4>
-                    <a href="https://wa.me/263778279401?text=Price%20for%20School%20Wear?" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> Ask Price</a>
+                    <h4>Corporate Image Kit</h4>
+                    <p class="kit-desc">Branded Shirt + Trousers + Blazer</p>
+                    <a href="https://wa.me/263778279401?text=Quote%20for%20Corporate%20Kit?" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> Get Kit Price</a>
                 </div>
             </div>
         </div>
 
-        <h3 class="cat-header">Corporate & Medical</h3>
+        <h3 class="cat-header">Essentials & Add-Ons</h3>
+        <div class="addons-grid">
+            <div class="addon-item">
+                <i class="fa-solid fa-hat-cowboy"></i>
+                <p>Branded Caps</p>
+            </div>
+            <div class="addon-item">
+                <i class="fa-solid fa-vest"></i>
+                <p>Reflective Vests</p>
+            </div>
+            <div class="addon-item">
+                <i class="fa-solid fa-mitten"></i>
+                <p>Safety Gloves</p>
+            </div>
+            <div class="addon-item">
+                <i class="fa-solid fa-apron"></i>
+                <p>Aprons</p>
+            </div>
+            <div class="addon-item">
+                <i class="fa-solid fa-umbrella"></i>
+                <p>Rain Gear</p>
+            </div>
+            <div class="addon-item">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <p>School Bags</p>
+            </div>
+        </div>
+
+        <h3 class="cat-header">Standard Categories</h3>
         <div class="catalog-grid">
             <div class="product-card">
-                <img src="blazer.jpg" alt="Corporate Blazer">
-                <div class="p-info">
-                    <h4>Corporate Blazers</h4>
-                    <a href="https://wa.me/263778279401?text=Price%20for%20Blazers?" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> Ask Price</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="scrubs.jpg" alt="Medical Scrubs">
+                <img src="scrubs.jpg" alt="Medical">
                 <div class="p-info">
                     <h4>Medical Scrubs</h4>
-                    <a href="https://wa.me/263778279401?text=Price%20for%20Scrubs?" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> Ask Price</a>
+                    <a href="https://wa.me/263778279401?text=Price%20for%20Scrubs?" class="wa-btn">Ask Price</a>
                 </div>
             </div>
             <div class="product-card">
-                <img src="pic13.jpg" alt="Office Wear">
+                <img src="pic12.jpg" alt="Tracksuits">
                 <div class="p-info">
-                    <h4>Office Wear</h4>
-                    <a href="https://wa.me/263778279401?text=Price%20for%20Office%20Wear?" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> Ask Price</a>
-                </div>
-            </div>
-        </div>
-
-        <h3 class="cat-header">Work Suits & Safety</h3>
-        <div class="catalog-grid">
-            <div class="product-card">
-                <img src="pic%204.jpg" alt="Safety Wear">
-                <div class="p-info">
-                    <h4>Safety Wear</h4>
-                    <a href="https://wa.me/263778279401?text=Price%20for%20Safety%20Wear?" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> Ask Price</a>
+                    <h4>Tracksuits</h4>
+                    <a href="https://wa.me/263778279401?text=Price%20for%20Tracksuits?" class="wa-btn">Ask Price</a>
                 </div>
             </div>
             <div class="product-card">
                 <img src="pic14.jpg" alt="Work Suits">
                 <div class="p-info">
                     <h4>Work Suits</h4>
-                    <a href="https://wa.me/263778279401?text=Price%20for%20Work%20Suits?" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> Ask Price</a>
+                    <a href="https://wa.me/263778279401?text=Price%20for%20Work%20Suits?" class="wa-btn">Ask Price</a>
                 </div>
-            </div>
-            <div class="product-card">
-                <img src="pic10.jpg" alt="Industrial Gear">
-                <div class="p-info">
-                    <h4>Industrial Gear</h4>
-                    <a href="https://wa.me/263778279401?text=Price%20for%20Industrial%20Gear?" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> Ask Price</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-padding">
-        <div class="section-title">
-            <h2>Customization Options</h2>
-            <p>We brand where you want.</p>
-        </div>
-        <div class="custom-grid">
-            <div class="custom-box">
-                <i class="fa-solid fa-shirt" style="font-size: 4rem; color: #ddd;"></i>
-                <div class="badge left-chest">Logo</div>
-                <p>Left Chest Embroidery</p>
-            </div>
-            <div class="custom-box">
-                <i class="fa-solid fa-shirt" style="font-size: 4rem; color: #ddd;"></i>
-                <div class="badge full-back">Big Logo</div>
-                <p>Full Back Screen Print</p>
-            </div>
-            <div class="custom-box">
-                <i class="fa-solid fa-shirt" style="font-size: 4rem; color: #ddd;"></i>
-                <div class="badge sleeve">Flag</div>
-                <p>Sleeve Details</p>
             </div>
         </div>
     </section>
@@ -238,11 +207,10 @@
     <section id="workshop" class="section-padding bg-light">
         <div class="section-title">
             <h2>Our Workshop</h2>
-            <p>Real people. Real machines. Real production.</p>
+            <p>Real production in Graniteside.</p>
         </div>
         <div class="gallery-masonry">
             <img src="pic%201.jpg" alt="Workshop">
-            <img src="pic%202.jpg" alt="Team">
             <img src="pic%205.jpg" alt="Production">
             <img src="pic%206.jpg" alt="Detail">
         </div>
@@ -259,38 +227,65 @@
                 </div>
             </div>
             <div class="col">
-                <h4>Legal & Support</h4>
+                <h4>Client Support</h4>
                 <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Cookie Notice</a></li>
-                    <li><a href="https://wa.me/263778279401">Get Support</a></li>
+                    <li><a href="#" onclick="openLogin()">Client Login</a></li>
+                    <li><a href="#">Request Quote</a></li>
+                    <li><a href="#">Size Guide</a></li>
                 </ul>
             </div>
             <div class="col">
-                <h4>Visit Us</h4>
-                <p>10 Conald Rd, Graniteside<br>Harare, Zimbabwe</p>
+                <h4>Contact</h4>
+                <p>10 Conald Rd, Graniteside</p>
                 <p>+263 77 827 9401</p>
-                <p>zvavamwelucia@gmail.com</p>
             </div>
         </div>
         <div class="copyright">
-            &copy; 2026 Sheilron Clothing Pvt Ltd. All Rights Reserved.
+            &copy; 2026 Sheilron Clothing Pvt Ltd.
         </div>
     </section>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLogin()">&times;</span>
+            <h2>Client Portal</h2>
+            <p>Access your saved quotes and order history.</p>
+            
+            <button class="google-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="G">
+                Continue with Google
+            </button>
+            
+            <div class="divider"><span>OR</span></div>
+            
+            <input type="email" placeholder="Email Address" class="login-input">
+            <input type="password" placeholder="Password" class="login-input">
+            <button class="login-submit">Sign In</button>
+            
+            <p class="terms-text">By continuing, you agree to our Terms of Service.</p>
+        </div>
+    </div>
 
     <a href="https://wa.me/263778279401" class="float-wa">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <script>
-        // Mobile Menu Toggle
+        // Mobile Menu
         const menuBtn = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
+        menuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+
+        // Login Modal Logic
+        function openLogin() { document.getElementById('loginModal').style.display = 'flex'; }
+        function closeLogin() { document.getElementById('loginModal').style.display = 'none'; }
         
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+        // Close modal if clicked outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('loginModal')) {
+                closeLogin();
+            }
+        }
     </script>
 </body>
 </html>
