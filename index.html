@@ -3,10 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sheilron Clothing | Bulk Uniform Manufacturers</title>
+    <meta name="description" content="Sheilron Clothing: Premier manufacturer of school uniforms, corporate wear, and safety gear in Zimbabwe. Bulk orders and contracts available.">
+    <meta name="keywords" content="uniforms Zimbabwe, school wear, corporate branding, safety wear, Sheilron Clothing, bulk manufacturing">
+    <meta property="og:title" content="Sheilron Clothing | Manufacturing Identity">
+    <meta property="og:image" content="pic%201.jpg">
+    
+    <title>Sheilron Clothing | B2B Uniform Manufacturers</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS SHELRON.css">
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js";
+
+        // --- YOUR SPECIFIC CONFIGURATION ---
+        const firebaseConfig = {
+            apiKey: "AIzaSyAVQPx7zeFj6NeuTjT3J_0uuM7CmIohz-k",
+            authDomain: "sheilron-web.firebaseapp.com",
+            projectId: "sheilron-web",
+            storageBucket: "sheilron-web.firebasestorage.app",
+            messagingSenderId: "674172152404",
+            appId: "1:674172152404:web:ec16fbeabef5e1bbd01bc1",
+            measurementId: "G-PZ41WH1T6D"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const analytics = getAnalytics(app); // Analytics started
+        const provider = new GoogleAuthProvider();
+
+        // Login Function
+        window.googleLogin = () => {
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    const user = result.user;
+                    console.log("Logged in:", user.displayName);
+                    // No need to call updateUI here, onAuthStateChanged handles it
+                    closeLogin();
+                }).catch((error) => {
+                    console.error("Login Error:", error);
+                    alert("Login failed. Please try again. Error: " + error.message);
+                });
+        };
+
+        // Logout Function
+        window.userLogout = () => {
+            signOut(auth).then(() => {
+                alert("Logged out successfully.");
+            });
+        };
+
+        // UI Updater (Runs automatically when login state changes)
+        function updateUI(user) {
+            const navBtn = document.getElementById('navLoginBtn');
+            const portalName = document.getElementById('portalName');
+            const portalContent = document.getElementById('portalContent');
+            const loginForm = document.getElementById('loginForm');
+
+            if (user) {
+                // Logged In State
+                navBtn.innerHTML = `<i class="fa-solid fa-user-check"></i> ${user.displayName.split(' ')[0]}`;
+                navBtn.onclick = openLogin; 
+                
+                // Dashboard View
+                loginForm.style.display = 'none';
+                portalContent.style.display = 'block';
+                portalName.innerText = `Welcome, ${user.displayName}`;
+            } else {
+                // Logged Out State
+                navBtn.innerHTML = `<i class="fa-solid fa-lock"></i> Client Portal`;
+                navBtn.onclick = openLogin;
+                
+                // Login Form View
+                loginForm.style.display = 'block';
+                portalContent.style.display = 'none';
+            }
+        }
+
+        // Listener for Login/Logout
+        onAuthStateChanged(auth, (user) => {
+            updateUI(user);
+        });
+    </script>
 </head>
 <body>
 
@@ -16,16 +98,14 @@
                 <i class="fa-solid fa-shirt"></i> SHEIL<span>RON</span>
             </a>
             <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
             </div>
             <ul class="nav-links">
-                <li><a href="#bulk">Bulk & Contracts</a></li>
+                <li><a href="#bulk">Contracts</a></li>
                 <li><a href="#catalog">Catalog</a></li>
-                <li><a href="#workshop">Workshop</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><button onclick="openLogin()" id="navLoginBtn" class="btn-login"><i class="fa-solid fa-user"></i> Client Portal</button></li>
+                <li><a href="#resources">Downloads</a></li>
+                <li><a href="#contact" class="btn-nav">Contact</a></li>
+                <li><button id="navLoginBtn" onclick="openLogin()" class="btn-login"><i class="fa-solid fa-lock"></i> Client Portal</button></li>
             </ul>
         </nav>
     </header>
@@ -33,242 +113,242 @@
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
+            <span class="hero-badge">Trusted by 50+ Schools & Corporates</span>
             <h1>Manufacturing Identity</h1>
-            <p>Zimbabwe's premier supplier for Schools, Corporates, and Construction.</p>
+            <p>Zimbabwe's premier supplier for Schools, Corporates, and Construction. Order direct from the factory.</p>
             <div class="hero-btns">
-                <a href="#contact" class="btn-primary">Request Bulk Quote</a>
+                <a href="#quote-form" class="btn-primary">Request Bulk Quote</a>
                 <a href="#catalog" class="btn-outline">View Catalog</a>
             </div>
         </div>
     </section>
 
+    <section class="trust-bar">
+        <div class="trust-item"><i class="fa-solid fa-check-circle"></i> ISO 9001 Standards</div>
+        <div class="trust-item"><i class="fa-solid fa-industry"></i> Local Manufacturing</div>
+        <div class="trust-item"><i class="fa-solid fa-truck-fast"></i> Nationwide Delivery</div>
+        <div class="trust-item"><i class="fa-solid fa-users"></i> Women-Led Business</div>
+    </section>
+
     <section id="bulk" class="section-padding">
         <div class="section-title">
-            <h2>Bulk Programs & Contracts</h2>
-            <p>We supply the biggest institutions in Zimbabwe. Here is how.</p>
+            <h2>Procurement Solutions</h2>
+            <p>Scalable manufacturing for large institutions.</p>
         </div>
         <div class="bulk-grid">
             <div class="bulk-card">
                 <div class="icon-box"><i class="fa-solid fa-school"></i></div>
-                <h3>School Bulk Programs</h3>
+                <h3>Schools</h3>
                 <ul>
-                    <li><i class="fa-solid fa-check"></i> Tiered discounts for entire schools</li>
-                    <li><i class="fa-solid fa-check"></i> Scheduled seasonal production</li>
-                    <li><i class="fa-solid fa-check"></i> Size profile storage</li>
+                    <li>Seasonal bulk production</li>
+                    <li>Size profile storage</li>
+                    <li>Direct-to-parent sales options</li>
                 </ul>
             </div>
             <div class="bulk-card highlight">
-                <div class="badge">Most Popular</div>
+                <div class="badge-pop">Best Value</div>
                 <div class="icon-box"><i class="fa-solid fa-file-signature"></i></div>
-                <h3>Annual Supply Contracts</h3>
+                <h3>Corporate Contracts</h3>
                 <ul>
-                    <li><i class="fa-solid fa-check"></i> Locked-in pricing for 12 months</li>
-                    <li><i class="fa-solid fa-check"></i> Priority production queue</li>
-                    <li><i class="fa-solid fa-check"></i> Dedicated account manager</li>
+                    <li>Fixed annual pricing</li>
+                    <li>Priority production queue</li>
+                    <li>Dedicated account manager</li>
                 </ul>
             </div>
             <div class="bulk-card">
                 <div class="icon-box"><i class="fa-solid fa-helmet-safety"></i></div>
-                <h3>Site Rollouts</h3>
+                <h3>Construction</h3>
                 <ul>
-                    <li><i class="fa-solid fa-check"></i> Full PPE kits per employee</li>
-                    <li><i class="fa-solid fa-check"></i> Fast replacement for damaged gear</li>
-                    <li><i class="fa-solid fa-check"></i> Branding & Logo safety compliance</li>
+                    <li>Site safety rollouts</li>
+                    <li>Rapid replacement gear</li>
+                    <li>Logo safety compliance</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section class="section-padding bg-light">
-        <div class="container-grid">
-            <div class="text-block">
-                <span class="tag">For Procurement Officers</span>
-                <h2>Why Choose Sheilron?</h2>
-                <p>We understand that your job is to get quality goods, on time, within budget. We make that easy.</p>
-                
-                <div class="trust-list">
-                    <div class="trust-item">
-                        <i class="fa-solid fa-clock"></i>
-                        <div>
-                            <h4>On-Time Delivery</h4>
-                            <p>We own our machines. We control the schedule. No excuses.</p>
-                        </div>
-                    </div>
-                    <div class="trust-item">
-                        <i class="fa-solid fa-ruler-combined"></i>
-                        <div>
-                            <h4>Consistent Sizing</h4>
-                            <p>A "Medium" today is the same "Medium" next year.</p>
-                        </div>
-                    </div>
-                    <div class="trust-item">
-                        <i class="fa-solid fa-handshake"></i>
-                        <div>
-                            <h4>No Middlemen</h4>
-                            <p>You deal directly with the factory. You save money.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="image-block">
-                <img src="pic%202.jpg" alt="Production Team">
-            </div>
-        </div>
-    </section>
-
-    <section id="catalog" class="section-padding">
+    <section id="catalog" class="section-padding bg-light">
         <div class="section-title">
             <h2>Product Catalog</h2>
-            <p>Order individual items or save with our <strong>Uniform Kits</strong>.</p>
+            <p>Select items to inquire. We offer bulk discounts.</p>
         </div>
 
-        <h3 class="cat-header">Best Value Kits (Packages)</h3>
+        <h3 class="cat-header">Best Value Kits</h3>
         <div class="catalog-grid">
-            <div class="product-card">
-                <img src="jersey.png" alt="School Kit">
+            <div class="product-card" onclick="addToRecentlyViewed('School Starter Kit', 'jersey.png')">
+                <span class="prod-badge discount">Bundle Deal</span>
+                <img src="jersey.png" alt="School Kit" loading="lazy">
                 <div class="p-info">
                     <h4>School Starter Kit</h4>
                     <p class="kit-desc">Shirt + Shorts + Jersey + Tie</p>
-                    <a href="https://wa.me/263778279401?text=Quote%20for%20School%20Starter%20Kit?" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> Get Kit Price</a>
+                    <a href="https://wa.me/263778279401?text=Quote%20for%20School%20Starter%20Kit" class="wa-btn">Get Kit Price</a>
                 </div>
             </div>
-            <div class="product-card">
-                <img src="pic%204.jpg" alt="Construction Kit">
+            <div class="product-card" onclick="addToRecentlyViewed('Construction Kit', 'pic%204.jpg')">
+                <span class="prod-badge safety">Safety Rated</span>
+                <img src="pic%204.jpg" alt="Construction Kit" loading="lazy">
                 <div class="p-info">
                     <h4>Construction Kit</h4>
                     <p class="kit-desc">Overall + Reflective Vest + Cap</p>
-                    <a href="https://wa.me/263778279401?text=Quote%20for%20Construction%20Kit?" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> Get Kit Price</a>
+                    <a href="https://wa.me/263778279401?text=Quote%20for%20Construction%20Kit" class="wa-btn">Get Kit Price</a>
                 </div>
             </div>
-            <div class="product-card">
-                <img src="blazer.jpg" alt="Corporate Kit">
+            <div class="product-card" onclick="addToRecentlyViewed('Corporate Kit', 'blazer.jpg')">
+                <span class="prod-badge premium">Premium</span>
+                <img src="blazer.jpg" alt="Corporate Kit" loading="lazy">
                 <div class="p-info">
                     <h4>Corporate Image Kit</h4>
                     <p class="kit-desc">Branded Shirt + Trousers + Blazer</p>
-                    <a href="https://wa.me/263778279401?text=Quote%20for%20Corporate%20Kit?" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> Get Kit Price</a>
+                    <a href="https://wa.me/263778279401?text=Quote%20for%20Corporate%20Kit" class="wa-btn">Get Kit Price</a>
                 </div>
             </div>
         </div>
 
-        <h3 class="cat-header">Essentials & Add-Ons</h3>
-        <div class="addons-grid">
-            <div class="addon-item">
-                <i class="fa-solid fa-hat-cowboy"></i>
-                <p>Branded Caps</p>
-            </div>
-            <div class="addon-item">
-                <i class="fa-solid fa-vest"></i>
-                <p>Reflective Vests</p>
-            </div>
-            <div class="addon-item">
-                <i class="fa-solid fa-mitten"></i>
-                <p>Safety Gloves</p>
-            </div>
-            <div class="addon-item">
-                <i class="fa-solid fa-apron"></i>
-                <p>Aprons</p>
-            </div>
-            <div class="addon-item">
-                <i class="fa-solid fa-umbrella"></i>
-                <p>Rain Gear</p>
-            </div>
-            <div class="addon-item">
-                <i class="fa-solid fa-bag-shopping"></i>
-                <p>School Bags</p>
-            </div>
-        </div>
-
-        <h3 class="cat-header">Standard Categories</h3>
+        <h3 class="cat-header">Individual Items</h3>
         <div class="catalog-grid">
-            <div class="product-card">
-                <img src="scrubs.jpg" alt="Medical">
+            <div class="product-card" onclick="addToRecentlyViewed('Medical Scrubs', 'scrubs.jpg')">
+                <img src="scrubs.jpg" alt="Medical" loading="lazy">
                 <div class="p-info">
                     <h4>Medical Scrubs</h4>
-                    <a href="https://wa.me/263778279401?text=Price%20for%20Scrubs?" class="wa-btn">Ask Price</a>
+                    <a href="https://wa.me/263778279401?text=Price%20for%20Scrubs" class="wa-btn">Ask Price</a>
                 </div>
             </div>
-            <div class="product-card">
-                <img src="pic12.jpg" alt="Tracksuits">
+            <div class="product-card" onclick="addToRecentlyViewed('Tracksuits', 'pic12.jpg')">
+                <img src="pic12.jpg" alt="Tracksuits" loading="lazy">
                 <div class="p-info">
                     <h4>Tracksuits</h4>
-                    <a href="https://wa.me/263778279401?text=Price%20for%20Tracksuits?" class="wa-btn">Ask Price</a>
+                    <a href="https://wa.me/263778279401?text=Price%20for%20Tracksuits" class="wa-btn">Ask Price</a>
                 </div>
             </div>
-            <div class="product-card">
-                <img src="pic14.jpg" alt="Work Suits">
+            <div class="product-card" onclick="addToRecentlyViewed('Work Suits', 'pic14.jpg')">
+                <img src="pic14.jpg" alt="Work Suits" loading="lazy">
                 <div class="p-info">
                     <h4>Work Suits</h4>
-                    <a href="https://wa.me/263778279401?text=Price%20for%20Work%20Suits?" class="wa-btn">Ask Price</a>
+                    <a href="https://wa.me/263778279401?text=Price%20for%20Work%20Suits" class="wa-btn">Ask Price</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="workshop" class="section-padding bg-light">
+    <section id="recently-viewed" class="section-padding" style="display:none;">
         <div class="section-title">
-            <h2>Our Workshop</h2>
-            <p>Real production in Graniteside.</p>
+            <h2>Recently Viewed</h2>
         </div>
-        <div class="gallery-masonry">
-            <img src="pic%201.jpg" alt="Workshop">
-            <img src="pic%205.jpg" alt="Production">
-            <img src="pic%206.jpg" alt="Detail">
+        <div class="catalog-grid" id="recent-grid">
+            </div>
+    </section>
+
+    <section id="resources" class="section-padding bg-dark">
+        <div class="section-title white-text">
+            <h2>Procurement Resources</h2>
+            <p>Download specifications and guides for your internal approval.</p>
+        </div>
+        <div class="resource-grid">
+            <div class="res-card">
+                <i class="fa-solid fa-file-pdf"></i>
+                <h3>Company Profile</h3>
+                <p>Full capability statement & registration.</p>
+                <a href="SHEILRON COMPANY PROFILE 2026.pdf" target="_blank" class="btn-download">Download PDF</a>
+            </div>
+            <div class="res-card">
+                <i class="fa-solid fa-ruler"></i>
+                <h3>Size Guide</h3>
+                <p>Standard measurements for staff.</p>
+                <a href="#" onclick="alert('Size guide coming soon!')" class="btn-download">Download Guide</a>
+            </div>
+            <div class="res-card">
+                <i class="fa-solid fa-file-contract"></i>
+                <h3>Credit Application</h3>
+                <p>Apply for 30-day payment terms.</p>
+                <a href="#" onclick="alert('Please email us for the form.')" class="btn-download">Request Form</a>
+            </div>
         </div>
     </section>
 
-    <section id="contact" class="footer-section">
+    <section id="quote-form" class="section-padding">
+        <div class="contact-container">
+            <div class="form-box">
+                <h3>Request a Quote / Consultation</h3>
+                <p>Tell us what you need. We usually reply within 24 hours.</p>
+                <form action="https://formspree.io/f/mqkovrja" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name / Company" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <select name="type">
+                            <option value="Quote">Request a Quote</option>
+                            <option value="Sample">Request a Sample</option>
+                            <option value="Consultation">Book Consultation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="4" placeholder="Details (Quantity, Sizes, Branding needs)" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%;">Send Request</button>
+                </form>
+            </div>
+            <div class="info-box">
+                <h3>Contact Details</h3>
+                <p><i class="fa-solid fa-location-dot"></i> 10 Conald Rd, Graniteside, Harare</p>
+                <p><i class="fa-solid fa-phone"></i> <a href="tel:+263778279401">+263 77 827 9401</a></p>
+                <p><i class="fa-solid fa-envelope"></i> zvavamwelucia@gmail.com</p>
+                <div class="map-placeholder">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3797.892067753956!2d31.0456!3d-17.8435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDUwJzM2LjYiUyAzMcKwMDInNDQuMiJF!5e0!3m2!1sen!2szw!4v1620000000000!5m2!1sen!2szw" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer-section">
         <div class="footer-content">
             <div class="col">
                 <h3>SHEIL<span>RON</span></h3>
-                <p>Leading the industry in school, work, and safety wear.</p>
+                <p>We manufacture identity.</p>
                 <div class="socials">
                     <a href="https://www.facebook.com/share/19fWA9XVzE/"><i class="fa-brands fa-facebook"></i></a>
                     <a href="https://www.instagram.com/sheilron_clothing?igsh=MXQ1MXM1bnZub3FkZA=="><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
             <div class="col">
-                <h4>Client Support</h4>
+                <h4>Legal</h4>
                 <ul>
-                    <li><a href="#" onclick="openLogin()">Client Login</a></li>
-                    <li><a href="#">Request Quote</a></li>
-                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
                 </ul>
             </div>
-            <div class="col">
-                <h4>Contact</h4>
-                <p>10 Conald Rd, Graniteside</p>
-                <p>+263 77 827 9401</p>
-            </div>
         </div>
-        <div class="copyright">
-            &copy; 2026 Sheilron Clothing Pvt Ltd.
-        </div>
+        <div class="copyright">© 2026 Sheilron Clothing Pvt Ltd. All Rights Reserved.</div>
     </section>
 
     <div id="loginModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeLogin()">&times;</span>
-            <h2 id="modalTitle">Client Portal</h2>
-            <p id="modalDesc">Access your saved quotes and order history.</p>
+            <span class="close" onclick="closeLogin()">×</span>
             
-            <button class="google-btn" onclick="handleGoogleLogin()">
-                <i class="fa-brands fa-google" style="color: #DB4437; font-size: 1.2rem;"></i>
-                <span id="googleBtnText">Continue with Google</span>
-            </button>
-            
-            <div class="divider"><span>OR</span></div>
-            
-            <input type="email" placeholder="Email Address" class="login-input">
-            <input type="password" placeholder="Password" class="login-input">
-            <button class="login-submit" onclick="handleEmailLogin()">Sign In</button>
-            
-            <p class="terms-text">By continuing, you agree to our Terms of Service.</p>
+            <div id="loginForm">
+                <h2>Client Portal</h2>
+                <p>Sign in to view contracts and saved orders.</p>
+                <button class="google-btn" onclick="googleLogin()">
+                    <i class="fa-brands fa-google" style="color: #DB4437;"></i> Continue with Google
+                </button>
+                <p class="terms-text">Secure access powered by Google.</p>
+            </div>
+
+            <div id="portalContent" style="display:none;">
+                <h2 id="portalName">Welcome</h2>
+                <div class="dashboard-links">
+                    <a href="#" class="dash-btn"><i class="fa-solid fa-file-invoice"></i> My Quotes (0)</a>
+                    <a href="#" class="dash-btn"><i class="fa-solid fa-box-open"></i> Order Status</a>
+                    <a href="#" class="dash-btn"><i class="fa-solid fa-gear"></i> Settings</a>
+                </div>
+                <button onclick="userLogout()" class="btn-outline" style="margin-top:20px; border-color:#333; color:#333;">Sign Out</button>
+            </div>
         </div>
     </div>
 
-    <a href="https://wa.me/263778279401" class="float-wa">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    <a href="https://wa.me/263778279401" class="float-wa"><i class="fa-brands fa-whatsapp"></i></a>
 
     <script>
         // Mobile Menu
@@ -276,42 +356,48 @@
         const navLinks = document.querySelector('.nav-links');
         menuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); });
 
-        // Login Logic
-        function openLogin() { 
-            document.getElementById('loginModal').style.display = 'flex'; 
-        }
-        function closeLogin() { 
-            document.getElementById('loginModal').style.display = 'none'; 
-        }
-        
-        // This function MAKES THE BUTTON WORK
-        function handleGoogleLogin() {
-            const btnText = document.getElementById('googleBtnText');
-            btnText.innerText = "Connecting...";
-            
-            // Simulate a delay (like real internet)
-            setTimeout(() => {
-                // 1. Close Modal
-                closeLogin();
-                // 2. Change Menu Button to "My Account"
-                const navBtn = document.getElementById('navLoginBtn');
-                navBtn.innerHTML = '<i class="fa-solid fa-check-circle"></i> My Account';
-                navBtn.style.background = "#25d366"; // Green color
-                // 3. Show Success Message
-                alert("Successfully Connected! Welcome back.");
-            }, 1500);
+        // Modal Logic
+        function openLogin() { document.getElementById('loginModal').style.display = 'flex'; }
+        function closeLogin() { document.getElementById('loginModal').style.display = 'none'; }
+        window.onclick = function(event) { if (event.target == document.getElementById('loginModal')) closeLogin(); }
+
+        // Recently Viewed Logic
+        function addToRecentlyViewed(name, img) {
+            let viewed = JSON.parse(localStorage.getItem('sheilronViewed')) || [];
+            // Remove duplicates
+            viewed = viewed.filter(item => item.name !== name);
+            // Add new to front
+            viewed.unshift({name, img});
+            // Limit to 3
+            if (viewed.length > 3) viewed.pop();
+            localStorage.setItem('sheilronViewed', JSON.stringify(viewed));
+            renderRecentlyViewed();
         }
 
-        function handleEmailLogin() {
-            handleGoogleLogin(); // Reuse same logic for demo
-        }
-        
-        // Close modal if clicked outside
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('loginModal')) {
-                closeLogin();
+        function renderRecentlyViewed() {
+            const container = document.getElementById('recent-grid');
+            const section = document.getElementById('recently-viewed');
+            const viewed = JSON.parse(localStorage.getItem('sheilronViewed')) || [];
+
+            if (viewed.length === 0) {
+                section.style.display = 'none';
+                return;
             }
+
+            section.style.display = 'block';
+            container.innerHTML = viewed.map(item => `
+                <div class="product-card" style="opacity: 0.8;">
+                    <img src="${item.img}" alt="${item.name}">
+                    <div class="p-info">
+                        <h4>${item.name}</h4>
+                        <small>Recently Viewed</small>
+                    </div>
+                </div>
+            `).join('');
         }
+
+        // Run on load
+        renderRecentlyViewed();
     </script>
 </body>
 </html>
