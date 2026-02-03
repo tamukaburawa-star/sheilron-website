@@ -93,8 +93,8 @@ header {
 
 /* --- HERO SECTION --- */
 .hero {
-    /* Using a professional Unsplash image for the background */
-    background: linear-gradient(rgba(26, 35, 126, 0.8), rgba(26, 35, 126, 0.6)), url('https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+    /* UPDATED: Uses %20 for space in "pic 1.jpg" */
+    background: linear-gradient(rgba(26, 35, 126, 0.8), rgba(26, 35, 126, 0.6)), url('pic%201.jpg');
     background-size: cover;
     background-position: center;
     height: 90vh;
@@ -257,7 +257,7 @@ header {
     color: var(--primary-blue);
 }
 
-/* --- GALLERY (Placeholder Grid) --- */
+/* --- GALLERY (New for your pictures) --- */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
