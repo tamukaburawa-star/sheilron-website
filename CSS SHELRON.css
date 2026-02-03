@@ -2,7 +2,7 @@
 :root {
     --blue: #1a237e;
     --red: #d32f2f;
-    --dark: #333;
+    --dark: #222; /* Darker black for Shein feel */
     --light: #f4f6f8;
     --wa: #25d366;
     --border: #e0e0e0;
@@ -18,7 +18,8 @@ header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: st
 .logo span { color: var(--red); }
 .nav-links { display: flex; gap: 25px; list-style: none; align-items: center; }
 .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; }
-.btn-login { background: var(--blue); color: white; padding: 8px 18px; border-radius: 4px; border: none; cursor: pointer; font-weight: 600; }
+.btn-login { background: transparent; color: var(--dark); padding: 8px 15px; border: 1px solid var(--dark); border-radius: 4px; cursor: pointer; font-weight: 600; transition: 0.3s; }
+.btn-login:hover { background: var(--dark); color: white; }
 
 /* Mobile Menu */
 .menu-toggle { display: none; flex-direction: column; cursor: pointer; }
@@ -39,7 +40,7 @@ header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: st
 .btn-primary { background: var(--red); color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: 600; border: 2px solid var(--red); }
 .btn-outline { border: 2px solid white; color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: 600; }
 
-/* --- TRUST BAR (RESTORED) --- */
+/* --- TRUST BAR --- */
 .trust-bar { background: #fff; padding: 20px 5%; display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; border-bottom: 1px solid #eee; }
 .trust-item { font-size: 0.95rem; font-weight: 600; color: #555; display: flex; align-items: center; gap: 10px; }
 .trust-item i { color: var(--blue); font-size: 1.2rem; }
@@ -50,7 +51,7 @@ header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: st
 .section-title { text-align: center; margin-bottom: 40px; }
 .section-title h2 { font-size: 2.2rem; color: var(--blue); margin-bottom: 10px; }
 
-/* --- BULK GRID (RESTORED) --- */
+/* --- BULK GRID --- */
 .bulk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
 .bulk-card { background: white; padding: 30px; border-radius: 10px; border: 1px solid #eee; text-align: center; position: relative; transition: 0.3s; }
 .bulk-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
@@ -90,12 +91,44 @@ header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: st
 .addon-item i { font-size: 1.8rem; color: var(--blue); margin-bottom: 10px; }
 .addon-item p { font-size: 0.85rem; font-weight: 600; }
 
-/* --- QUOTE FORM --- */
+/* --- QUOTE FORM & INFO --- */
 .contact-container { display: flex; flex-wrap: wrap; gap: 40px; max-width: 1200px; margin: 0 auto; }
 .form-box { flex: 2; min-width: 300px; }
 .info-box { flex: 1; min-width: 250px; background: #fff; padding: 30px; border-radius: 10px; border: 1px solid #eee; }
 .form-group { margin-bottom: 15px; }
 .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
+
+/* --- OPERATING HOURS (NEW) --- */
+.hours-box { background: #f9f9f9; padding: 15px; border-radius: 5px; margin-top: 20px; }
+.hours-box h4 { margin-bottom: 10px; color: var(--blue); }
+.hours-box ul { list-style: none; padding: 0; }
+.hours-box ul li { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 5px; border-bottom: 1px dashed #ddd; padding-bottom: 5px; }
+.hours-box ul li span { font-weight: 600; color: var(--dark); }
+
+/* --- MAP --- */
+.map-container { margin-top: 20px; border-radius: 8px; overflow: hidden; }
+
+/* --- LOGIN MODAL (SHEIN STYLE) --- */
+.modal { display: none; position: fixed; z-index: 6000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
+.modal-content { background: white; padding: 0; width: 90%; max-width: 400px; border-radius: 8px; position: relative; text-align: center; overflow: hidden; }
+.close { position: absolute; top: 10px; right: 15px; font-size: 30px; cursor: pointer; z-index: 10; }
+
+.auth-tabs { display: flex; border-bottom: 1px solid #eee; }
+.tab-btn { flex: 1; padding: 15px; background: #fff; border: none; font-weight: 600; cursor: pointer; color: #888; transition: 0.3s; }
+.tab-btn.active { color: var(--dark); border-bottom: 2px solid var(--dark); }
+
+.auth-form { padding: 30px; }
+.login-input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; }
+.black-btn { width: 100%; padding: 12px; background: var(--dark); color: white; border: none; font-weight: 600; cursor: pointer; }
+.black-btn:hover { opacity: 0.9; }
+
+.google-btn { background: white; border: 1px solid #ccc; padding: 12px; width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; font-weight: 600; transition: 0.2s; }
+.dashboard-links { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; padding: 20px; }
+.dash-btn { background: #f5f5f5; padding: 12px; text-decoration: none; color: var(--dark); font-weight: 600; text-align: left; padding-left: 20px; border-radius: 5px; }
+.dashboard-header { background: var(--light); padding: 20px; }
+
+.divider { margin: 20px 0; position: relative; }
+.divider span { background: white; padding: 0 10px; color: #999; font-size: 0.8rem; }
 
 /* --- FOOTER --- */
 .footer-section { background: #fff; padding: 50px 5% 20px; border-top: 1px solid #eee; text-align: center; }
@@ -112,14 +145,6 @@ header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: st
 .cookie-content { max-width: 1200px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; width: 100%; }
 .cookie-content p { font-size: 0.9rem; color: #555; flex: 1; }
 .btn-accept { background: var(--dark); color: white; border: none; padding: 10px 25px; cursor: pointer; font-weight: 600; }
-
-/* --- MODAL --- */
-.modal { display: none; position: fixed; z-index: 6000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
-.modal-content { background: white; padding: 40px; width: 90%; max-width: 400px; border-radius: 8px; position: relative; text-align: center; }
-.close { position: absolute; top: 10px; right: 20px; font-size: 30px; cursor: pointer; }
-.google-btn { background: white; border: 1px solid #ccc; padding: 12px; width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; font-weight: 600; margin-top: 20px; }
-.dashboard-links { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
-.dash-btn { background: #f5f5f5; padding: 12px; text-decoration: none; color: var(--dark); font-weight: 600; text-align: left; padding-left: 20px; border-radius: 5px; }
 
 /* --- FLOAT WA --- */
 .float-wa { position: fixed; bottom: 80px; right: 20px; width: 60px; height: 60px; background: var(--wa); color: white; border-radius: 50%; font-size: 30px; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 4000; }
