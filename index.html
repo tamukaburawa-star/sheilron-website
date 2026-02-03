@@ -14,6 +14,7 @@
         import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js";
 
+        // YOUR KEYS
         const firebaseConfig = {
             apiKey: "AIzaSyAVQPx7zeFj6NeuTjT3J_0uuM7CmIohz-k",
             authDomain: "sheilron-web.firebaseapp.com",
@@ -71,9 +72,10 @@
                 <span class="bar"></span><span class="bar"></span><span class="bar"></span>
             </div>
             <ul class="nav-links">
-                <li><a href="#catalog">Catalog</a></li>
                 <li><a href="#bulk">Contracts</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#catalog">Catalog</a></li>
+                <li><a href="#quote-form">Request Quote</a></li>
+                <li><a href="#contact" class="btn-nav">Contact</a></li>
                 <li><button id="navLoginBtn" onclick="openLogin()" class="btn-login"><i class="fa-solid fa-lock"></i> Login</button></li>
             </ul>
         </nav>
@@ -84,10 +86,54 @@
         <div class="hero-content">
             <span class="hero-badge">ISO 9001 Certified Manufacturer</span>
             <h1>Manufacturing Identity</h1>
-            <p>Direct factory prices for Schools, Corporates & Mines.</p>
+            <p>Zimbabwe's premier supplier for Schools, Corporates, and Construction. Order direct from the factory.</p>
             <div class="hero-btns">
-                <a href="#catalog" class="btn-primary">View Products</a>
-                <a href="#contact" class="btn-outline">Request Quote</a>
+                <a href="#quote-form" class="btn-primary">Request Bulk Quote</a>
+                <a href="#catalog" class="btn-outline">View Catalog</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-bar">
+        <div class="trust-item"><i class="fa-solid fa-check-circle"></i> On-Time Delivery</div>
+        <div class="trust-item"><i class="fa-solid fa-industry"></i> Local Manufacturing</div>
+        <div class="trust-item"><i class="fa-solid fa-handshake"></i> No Middlemen</div>
+        <div class="trust-item"><i class="fa-solid fa-users"></i> Women-Led Business</div>
+    </section>
+
+    <section id="bulk" class="section-padding">
+        <div class="section-title">
+            <h2>Bulk Programs & Contracts</h2>
+            <p>We supply the biggest institutions in Zimbabwe. Here is how.</p>
+        </div>
+        <div class="bulk-grid">
+            <div class="bulk-card">
+                <div class="icon-box"><i class="fa-solid fa-school"></i></div>
+                <h3>School Bulk Programs</h3>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Tiered discounts for entire schools</li>
+                    <li><i class="fa-solid fa-check"></i> Scheduled seasonal production</li>
+                    <li><i class="fa-solid fa-check"></i> Size profile storage</li>
+                </ul>
+            </div>
+            <div class="bulk-card highlight">
+                <div class="badge-pop">Best Value</div>
+                <div class="icon-box"><i class="fa-solid fa-file-signature"></i></div>
+                <h3>Annual Supply Contracts</h3>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Locked-in pricing for 12 months</li>
+                    <li><i class="fa-solid fa-check"></i> Priority production queue</li>
+                    <li><i class="fa-solid fa-check"></i> Dedicated account manager</li>
+                </ul>
+            </div>
+            <div class="bulk-card">
+                <div class="icon-box"><i class="fa-solid fa-helmet-safety"></i></div>
+                <h3>Site Rollouts</h3>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Full PPE kits per employee</li>
+                    <li><i class="fa-solid fa-check"></i> Fast replacement for damaged gear</li>
+                    <li><i class="fa-solid fa-check"></i> Branding & Logo safety compliance</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -105,170 +151,170 @@
     <section id="catalog" class="section-padding bg-light">
         <div class="section-title">
             <h2>Product Catalog</h2>
-            <p>Wholesale pricing available for bulk orders.</p>
+            <p>Select items to inquire. Wholesale pricing available.</p>
         </div>
 
+        <h3 class="cat-header">Best Value Kits (Packages)</h3>
         <div class="catalog-grid">
             
             <div class="product-card filter-item school">
-                <span class="badge-audit">Factory Audited</span>
+                <span class="prod-badge discount">Bundle Deal</span>
                 <div class="img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1594938298603-c8148c47e356?auto=format&fit=crop&w=500&q=80" alt="School Blazer">
-                </div>
+                    <img src="jersey.png" alt="School Kit"> </div>
                 <div class="p-details">
-                    <h3>School Blazers (Custom)</h3>
-                    <div class="price-row">
-                        <span class="price">$25.00 - $35.00</span> <span class="unit">/ piece</span>
-                    </div>
-                    <div class="moq-row">
-                        <span><i class="fa-solid fa-box"></i> MOQ: 50 Pieces</span>
-                    </div>
-                    <div class="action-row">
-                        <a href="https://wa.me/263778279401?text=Inquiry%20School%20Blazers" class="btn-inquiry">Send Inquiry</a>
-                        <button class="btn-chat"><i class="fa-brands fa-whatsapp"></i></button>
-                    </div>
+                    <h4>School Starter Kit</h4>
+                    <p class="kit-desc">Shirt + Shorts + Jersey + Tie</p>
+                    <a href="https://wa.me/263778279401?text=Quote%20for%20School%20Starter%20Kit" class="wa-btn">Get Kit Price</a>
                 </div>
             </div>
 
             <div class="product-card filter-item safety">
-                <span class="badge-audit">High Visibility</span>
+                <span class="prod-badge safety">Safety Rated</span>
                 <div class="img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=500&q=80" alt="Safety Wear">
-                </div>
+                    <img src="pic%204.jpg" alt="Construction Kit"> </div>
                 <div class="p-details">
-                    <h3>Industrial Work Suits</h3>
-                    <div class="price-row">
-                        <span class="price">$18.50 - $22.00</span> <span class="unit">/ set</span>
-                    </div>
-                    <div class="moq-row">
-                        <span><i class="fa-solid fa-box"></i> MOQ: 20 Sets</span>
-                    </div>
-                    <div class="action-row">
-                        <a href="https://wa.me/263778279401?text=Inquiry%20Work%20Suits" class="btn-inquiry">Send Inquiry</a>
-                        <button class="btn-chat"><i class="fa-brands fa-whatsapp"></i></button>
-                    </div>
+                    <h4>Construction Kit</h4>
+                    <p class="kit-desc">Overall + Reflective Vest + Cap</p>
+                    <a href="https://wa.me/263778279401?text=Quote%20for%20Construction%20Kit" class="wa-btn">Get Kit Price</a>
                 </div>
             </div>
 
             <div class="product-card filter-item corporate">
-                <span class="badge-audit">Premium Fabric</span>
+                <span class="prod-badge premium">Premium</span>
                 <div class="img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1593030761757-71bd90dbe3e4?auto=format&fit=crop&w=500&q=80" alt="Corporate Suit">
-                </div>
+                    <img src="blazer.jpg" alt="Corporate Kit"> </div>
                 <div class="p-details">
-                    <h3>Corporate Suits</h3>
-                    <div class="price-row">
-                        <span class="price">$60.00 - $85.00</span> <span class="unit">/ set</span>
-                    </div>
-                    <div class="moq-row">
-                        <span><i class="fa-solid fa-box"></i> MOQ: 10 Sets</span>
-                    </div>
-                    <div class="action-row">
-                        <a href="https://wa.me/263778279401?text=Inquiry%20Corporate%20Suits" class="btn-inquiry">Send Inquiry</a>
-                        <button class="btn-chat"><i class="fa-brands fa-whatsapp"></i></button>
-                    </div>
+                    <h4>Corporate Image Kit</h4>
+                    <p class="kit-desc">Branded Shirt + Trousers + Blazer</p>
+                    <a href="https://wa.me/263778279401?text=Quote%20for%20Corporate%20Kit" class="wa-btn">Get Kit Price</a>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="cat-header">Individual Items</h3>
+        <div class="catalog-grid">
+            
+            <div class="product-card filter-item school">
+                <div class="img-wrapper">
+                    <img src="pic12.jpg" alt="Tracksuit"> </div>
+                <div class="p-details">
+                    <h4>Sport Tracksuits</h4>
+                    <a href="https://wa.me/263778279401?text=Price%20for%20Tracksuits" class="wa-btn">Ask Price</a>
+                </div>
+            </div>
+
+            <div class="product-card filter-item safety">
+                <div class="img-wrapper">
+                    <img src="pic14.jpg" alt="Work Suit"> </div>
+                <div class="p-details">
+                    <h4>Work Suits</h4>
+                    <a href="https://wa.me/263778279401?text=Price%20for%20Work%20Suits" class="wa-btn">Ask Price</a>
                 </div>
             </div>
 
             <div class="product-card filter-item medical">
                 <div class="img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1584036561566-b93a901668d4?auto=format&fit=crop&w=500&q=80" alt="Medical Scrubs">
-                </div>
+                    <img src="scrubs.jpg" alt="Scrubs"> </div>
                 <div class="p-details">
-                    <h3>Medical Scrubs</h3>
-                    <div class="price-row">
-                        <span class="price">$15.00 - $19.00</span> <span class="unit">/ set</span>
-                    </div>
-                    <div class="moq-row">
-                        <span><i class="fa-solid fa-box"></i> MOQ: 30 Sets</span>
-                    </div>
-                    <div class="action-row">
-                        <a href="https://wa.me/263778279401?text=Inquiry%20Scrubs" class="btn-inquiry">Send Inquiry</a>
-                        <button class="btn-chat"><i class="fa-brands fa-whatsapp"></i></button>
-                    </div>
+                    <h4>Medical Scrubs</h4>
+                    <a href="https://wa.me/263778279401?text=Price%20for%20Scrubs" class="wa-btn">Ask Price</a>
+                </div>
+            </div>
+
+            <div class="product-card filter-item corporate">
+                <div class="img-wrapper">
+                    <img src="pic13.jpg" alt="Office Wear"> </div>
+                <div class="p-details">
+                    <h4>Office Wear</h4>
+                    <a href="https://wa.me/263778279401?text=Price%20for%20Office%20Wear" class="wa-btn">Ask Price</a>
                 </div>
             </div>
 
             <div class="product-card filter-item school">
                 <div class="img-wrapper">
-                    <img src="jersey.png" alt="School Jersey">
-                </div>
+                    <img src="pic15.jpg" alt="School Wear"> </div>
                 <div class="p-details">
-                    <h3>Knitted School Jerseys</h3>
-                    <div class="price-row">
-                        <span class="price">$10.00 - $14.00</span> <span class="unit">/ piece</span>
-                    </div>
-                    <div class="moq-row">
-                        <span><i class="fa-solid fa-box"></i> MOQ: 50 Pieces</span>
-                    </div>
-                    <div class="action-row">
-                        <a href="https://wa.me/263778279401?text=Inquiry%20Jerseys" class="btn-inquiry">Send Inquiry</a>
-                        <button class="btn-chat"><i class="fa-brands fa-whatsapp"></i></button>
-                    </div>
+                    <h4>School Wear</h4>
+                    <a href="https://wa.me/263778279401?text=Price%20for%20School%20Wear" class="wa-btn">Ask Price</a>
                 </div>
             </div>
 
-            <div class="product-card filter-item school">
+            <div class="product-card filter-item safety">
                 <div class="img-wrapper">
-                    <img src="pic12.jpg" alt="Tracksuits">
-                </div>
+                    <img src="pic10.jpg" alt="Industrial Gear"> </div>
                 <div class="p-details">
-                    <h3>Sport Tracksuits</h3>
-                    <div class="price-row">
-                        <span class="price">$22.00 - $28.00</span> <span class="unit">/ set</span>
-                    </div>
-                    <div class="moq-row">
-                        <span><i class="fa-solid fa-box"></i> MOQ: 20 Sets</span>
-                    </div>
-                    <div class="action-row">
-                        <a href="https://wa.me/263778279401?text=Inquiry%20Tracksuits" class="btn-inquiry">Send Inquiry</a>
-                        <button class="btn-chat"><i class="fa-brands fa-whatsapp"></i></button>
-                    </div>
+                    <h4>Industrial Gear</h4>
+                    <a href="https://wa.me/263778279401?text=Price%20for%20Industrial%20Gear" class="wa-btn">Ask Price</a>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <section id="bulk" class="section-padding">
+    <section class="section-padding">
         <div class="section-title">
-            <h2>Contracts & Procurement</h2>
+            <h2>Essentials & Add-Ons</h2>
+            <p>Complete your order with these necessities.</p>
         </div>
-        <div class="bulk-grid">
-            <div class="bulk-card">
-                <i class="fa-solid fa-school"></i>
-                <h3>School Contracts</h3>
-                <p>Consistent supply for the whole year.</p>
+        <div class="addons-grid">
+            <div class="addon-item"><i class="fa-solid fa-hat-cowboy"></i><p>Branded Caps</p></div>
+            <div class="addon-item"><i class="fa-solid fa-vest"></i><p>Reflective Vests</p></div>
+            <div class="addon-item"><i class="fa-solid fa-mitten"></i><p>Safety Gloves</p></div>
+            <div class="addon-item"><i class="fa-solid fa-apron"></i><p>Aprons</p></div>
+            <div class="addon-item"><i class="fa-solid fa-umbrella"></i><p>Rain Gear</p></div>
+            <div class="addon-item"><i class="fa-solid fa-bag-shopping"></i><p>School Bags</p></div>
+        </div>
+    </section>
+
+    <section id="quote-form" class="section-padding bg-light">
+        <div class="contact-container">
+            <div class="form-box">
+                <h3>Request a Quote / Consultation</h3>
+                <p>Tell us what you need. We usually reply within 24 hours.</p>
+                <form action="https://formspree.io/f/mqkovrja" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name / Company" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <select name="type">
+                            <option value="Quote">Request a Quote</option>
+                            <option value="Sample">Request a Sample</option>
+                            <option value="Consultation">Book Consultation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="4" placeholder="Details (Quantity, Sizes, Branding needs)" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%;">Send Request</button>
+                </form>
             </div>
-            <div class="bulk-card highlight">
-                <div class="badge">Most Popular</div>
-                <i class="fa-solid fa-building"></i>
-                <h3>Corporate Branding</h3>
-                <p>Full embroidery & screen printing.</p>
-            </div>
-            <div class="bulk-card">
-                <i class="fa-solid fa-helmet-safety"></i>
-                <h3>Safety Rollouts</h3>
-                <p>PPE compliance for mining & construction.</p>
+            <div class="info-box">
+                <h3>Contact Details</h3>
+                <p><i class="fa-solid fa-location-dot"></i> 10 Conald Rd, Graniteside, Harare</p>
+                <p><i class="fa-solid fa-phone"></i> <a href="tel:+263778279401">+263 77 827 9401</a></p>
+                <p><i class="fa-solid fa-envelope"></i> zvavamwelucia@gmail.com</p>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="footer-section">
+    <section class="footer-section">
         <div class="footer-content">
             <div class="col">
                 <h3>SHEIL<span>RON</span></h3>
-                <p>10 Conald Rd, Graniteside, Harare</p>
+                <p>Leading the industry in school, work, and safety wear.</p>
                 <div class="socials">
                     <a href="https://www.facebook.com/share/19fWA9XVzE/"><i class="fa-brands fa-facebook"></i></a>
                     <a href="https://www.instagram.com/sheilron_clothing?igsh=MXQ1MXM1bnZub3FkZA=="><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
             <div class="col">
-                <h4>Legal</h4>
+                <h4>Procurement Resources</h4>
                 <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="SHEILRON COMPANY PROFILE 2026.pdf" target="_blank">Download Profile</a></li>
+                    <li><a href="#" onclick="alert('Coming soon')">Size Guide</a></li>
                 </ul>
             </div>
         </div>
@@ -277,10 +323,9 @@
 
     <div id="cookieBanner" class="cookie-banner">
         <div class="cookie-content">
-            <p>We use cookies to improve your experience and track orders. By continuing, you agree to our policy.</p>
+            <p>We use cookies to improve your experience.</p>
             <div class="cookie-btns">
-                <button onclick="acceptCookies()" class="btn-accept">Accept All</button>
-                <button onclick="hideCookies()" class="btn-reject">Reject</button>
+                <button onclick="acceptCookies()" class="btn-accept">Accept</button>
             </div>
         </div>
     </div>
@@ -289,7 +334,7 @@
         <div class="modal-content">
             <span class="close" onclick="closeLogin()">×</span>
             <div id="loginForm">
-                <h2>Client Login</h2>
+                <h2>Client Portal</h2>
                 <button class="google-btn" onclick="googleLogin()">
                     <i class="fa-brands fa-google"></i> Continue with Google
                 </button>
@@ -297,7 +342,7 @@
             <div id="portalContent" style="display:none;">
                 <h2>Welcome, <span id="welcomeName"></span></h2>
                 <div class="dashboard-links">
-                    <a href="#" class="dash-btn"><i class="fa-solid fa-file"></i> My Quotations</a>
+                    <a href="#" class="dash-btn"><i class="fa-solid fa-file"></i> My Quotes</a>
                     <a href="#" class="dash-btn"><i class="fa-solid fa-box"></i> Order History</a>
                 </div>
                 <button onclick="userLogout()" class="btn-outline" style="margin-top:20px; color:#333;">Sign Out</button>
@@ -308,7 +353,7 @@
     <a href="https://wa.me/263778279401" class="float-wa"><i class="fa-brands fa-whatsapp"></i></a>
 
     <script>
-        // Menu Toggle
+        // Menu
         document.getElementById('mobile-menu').addEventListener('click', () => {
             document.querySelector('.nav-links').classList.toggle('active');
         });
@@ -322,11 +367,9 @@
                 x[i].style.display = "none";
                 if (x[i].className.indexOf(c) > -1) x[i].style.display = "block";
             }
-            // Add active class to button
+            // Button Active State
             var btns = document.getElementsByClassName("filter-pill");
-            for (i = 0; i < btns.length; i++) {
-                btns[i].classList.remove("active");
-            }
+            for (i = 0; i < btns.length; i++) { btns[i].classList.remove("active"); }
             event.currentTarget.classList.add("active");
         }
         filterSelection("all");
@@ -335,16 +378,11 @@
         function openLogin() { document.getElementById('loginModal').style.display = 'flex'; }
         function closeLogin() { document.getElementById('loginModal').style.display = 'none'; }
         
-        // Cookie Logic
+        // Cookies
         function acceptCookies() {
             document.getElementById('cookieBanner').style.display = 'none';
             localStorage.setItem('cookiesAccepted', 'true');
         }
-        function hideCookies() {
-            document.getElementById('cookieBanner').style.display = 'none';
-        }
-        
-        // Check cookies on load
         if (!localStorage.getItem('cookiesAccepted')) {
             document.getElementById('cookieBanner').style.display = 'flex';
         }
