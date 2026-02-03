@@ -25,7 +25,7 @@
                 <li><a href="#catalog">Catalog</a></li>
                 <li><a href="#workshop">Workshop</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><button onclick="openLogin()" class="btn-login"><i class="fa-brands fa-google"></i> Client Portal</button></li>
+                <li><button onclick="openLogin()" id="navLoginBtn" class="btn-login"><i class="fa-solid fa-user"></i> Client Portal</button></li>
             </ul>
         </nav>
     </header>
@@ -248,19 +248,19 @@
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeLogin()">&times;</span>
-            <h2>Client Portal</h2>
-            <p>Access your saved quotes and order history.</p>
+            <h2 id="modalTitle">Client Portal</h2>
+            <p id="modalDesc">Access your saved quotes and order history.</p>
             
-            <button class="google-btn">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="G">
-                Continue with Google
+            <button class="google-btn" onclick="handleGoogleLogin()">
+                <i class="fa-brands fa-google" style="color: #DB4437; font-size: 1.2rem;"></i>
+                <span id="googleBtnText">Continue with Google</span>
             </button>
             
             <div class="divider"><span>OR</span></div>
             
             <input type="email" placeholder="Email Address" class="login-input">
             <input type="password" placeholder="Password" class="login-input">
-            <button class="login-submit">Sign In</button>
+            <button class="login-submit" onclick="handleEmailLogin()">Sign In</button>
             
             <p class="terms-text">By continuing, you agree to our Terms of Service.</p>
         </div>
@@ -276,9 +276,35 @@
         const navLinks = document.querySelector('.nav-links');
         menuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); });
 
-        // Login Modal Logic
-        function openLogin() { document.getElementById('loginModal').style.display = 'flex'; }
-        function closeLogin() { document.getElementById('loginModal').style.display = 'none'; }
+        // Login Logic
+        function openLogin() { 
+            document.getElementById('loginModal').style.display = 'flex'; 
+        }
+        function closeLogin() { 
+            document.getElementById('loginModal').style.display = 'none'; 
+        }
+        
+        // This function MAKES THE BUTTON WORK
+        function handleGoogleLogin() {
+            const btnText = document.getElementById('googleBtnText');
+            btnText.innerText = "Connecting...";
+            
+            // Simulate a delay (like real internet)
+            setTimeout(() => {
+                // 1. Close Modal
+                closeLogin();
+                // 2. Change Menu Button to "My Account"
+                const navBtn = document.getElementById('navLoginBtn');
+                navBtn.innerHTML = '<i class="fa-solid fa-check-circle"></i> My Account';
+                navBtn.style.background = "#25d366"; // Green color
+                // 3. Show Success Message
+                alert("Successfully Connected! Welcome back.");
+            }, 1500);
+        }
+
+        function handleEmailLogin() {
+            handleGoogleLogin(); // Reuse same logic for demo
+        }
         
         // Close modal if clicked outside
         window.onclick = function(event) {
