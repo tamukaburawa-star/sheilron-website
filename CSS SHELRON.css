@@ -93,7 +93,8 @@ header {
 
 /* --- HERO SECTION --- */
 .hero {
-    /* UPDATED: Uses %20 for space in "pic 1.jpg" */
+    /* THIS IS THE IMPORTANT PART: */
+    /* It uses YOUR image (pic 1.jpg) but adds %20 to fix the space issue */
     background: linear-gradient(rgba(26, 35, 126, 0.8), rgba(26, 35, 126, 0.6)), url('pic%201.jpg');
     background-size: cover;
     background-position: center;
@@ -257,7 +258,7 @@ header {
     color: var(--primary-blue);
 }
 
-/* --- GALLERY (New for your pictures) --- */
+/* --- GALLERY --- */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
