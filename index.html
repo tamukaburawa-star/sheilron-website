@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sheilron Clothing | Manufacturing Identity</title>
+    <title>Sheilron Clothing | Custom Uniform Manufacturers</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -13,7 +13,6 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
         import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
 
-        // YOUR CONFIG
         const firebaseConfig = {
             apiKey: "AIzaSyAVQPx7zeFj6NeuTjT3J_0uuM7CmIohz-k",
             authDomain: "sheilron-web.firebaseapp.com",
@@ -28,40 +27,29 @@
         const auth = getAuth(app);
         const provider = new GoogleAuthProvider();
 
-        // 1. Google Login
+        // Attach functions to window for global access
         window.googleLogin = () => {
             signInWithPopup(auth, provider).then(() => closeLogin()).catch(e => alert(e.message));
         };
 
-        // 2. Email Sign Up (Register)
         window.emailSignUp = () => {
             const email = document.getElementById('regEmail').value;
             const pass = document.getElementById('regPass').value;
             createUserWithEmailAndPassword(auth, email, pass)
-                .then((userCredential) => {
-                    alert("Account Created! You are now logged in.");
-                    closeLogin();
-                })
-                .catch((error) => {
-                    alert("Error: " + error.message);
-                });
+                .then(() => { alert("Account Created!"); closeLogin(); })
+                .catch((error) => alert("Error: " + error.message));
         };
 
-        // 3. Email Login (Sign In)
         window.emailLogin = () => {
             const email = document.getElementById('loginEmail').value;
             const pass = document.getElementById('loginPass').value;
             signInWithEmailAndPassword(auth, email, pass)
-                .then((userCredential) => {
-                    closeLogin();
-                })
-                .catch((error) => {
-                    alert("Login Failed: " + error.message);
-                });
+                .then(() => closeLogin())
+                .catch((error) => alert("Login Failed: " + error.message));
         };
 
         window.userLogout = () => {
-            signOut(auth).then(() => { alert("Logged out."); });
+            signOut(auth).then(() => alert("Logged out."));
         };
 
         onAuthStateChanged(auth, (user) => {
@@ -71,13 +59,11 @@
             const welcomeName = document.getElementById('welcomeName');
 
             if (user) {
-                // Logged In State
                 navBtn.innerHTML = `<i class="fa-solid fa-user-circle"></i> My Account`;
                 authContainer.style.display = 'none';
                 portalContent.style.display = 'block';
-                welcomeName.innerText = user.email; // Using email as display name
+                welcomeName.innerText = user.email;
             } else {
-                // Logged Out State
                 navBtn.innerHTML = `<i class="fa-regular fa-user"></i> Sign In / Register`;
                 authContainer.style.display = 'block';
                 portalContent.style.display = 'none';
@@ -108,8 +94,8 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <span class="hero-badge">ISO 9001 Certified Manufacturer</span>
-            <h1>Manufacturing Identity</h1>
-            <p>Direct factory prices for Schools, Corporates & Mines.</p>
+            <h1>Custom Uniforms Made at Factory Scale</h1>
+            <p>School, corporate & industrial wear. Bulk pricing. No middlemen.</p>
             <div class="hero-btns">
                 <a href="#quote-form" class="btn-primary">Request Bulk Quote</a>
                 <a href="#catalog" class="btn-outline">View Catalog</a>
@@ -127,7 +113,7 @@
     <section id="bulk" class="section-padding">
         <div class="section-title">
             <h2>Bulk Programs & Contracts</h2>
-            <p>We supply the biggest institutions in Zimbabwe. Here is how.</p>
+            <p>We supply the biggest institutions in Zimbabwe.</p>
         </div>
         <div class="bulk-grid">
             <div class="bulk-card">
@@ -163,11 +149,11 @@
 
     <div class="filter-bar-container">
         <div class="filter-scroll">
-            <button class="filter-pill active" onclick="filterSelection('all')">All Products</button>
-            <button class="filter-pill" onclick="filterSelection('school')">School Wear</button>
-            <button class="filter-pill" onclick="filterSelection('corporate')">Corporate</button>
-            <button class="filter-pill" onclick="filterSelection('safety')">Safety & PPE</button>
-            <button class="filter-pill" onclick="filterSelection('medical')">Medical</button>
+            <button class="filter-pill active" onclick="filterSelection('all', this)">All Products</button>
+            <button class="filter-pill" onclick="filterSelection('school', this)">School Wear</button>
+            <button class="filter-pill" onclick="filterSelection('corporate', this)">Corporate</button>
+            <button class="filter-pill" onclick="filterSelection('safety', this)">Safety & PPE</button>
+            <button class="filter-pill" onclick="filterSelection('medical', this)">Medical</button>
         </div>
     </div>
 
@@ -185,6 +171,11 @@
                 <div class="p-details">
                     <h4>School Starter Kit</h4>
                     <p class="kit-desc">Shirt + Shorts + Jersey + Tie</p>
+                    <ul class="spec-list">
+                        <li>Fabric: Poly-cotton / Acrylic</li>
+                        <li>Sizes: 4-5 Years to XL</li>
+                        <li>Includes: 4 Items</li>
+                    </ul>
                     <a href="https://wa.me/263778279401?text=Quote%20for%20School%20Starter%20Kit" class="wa-btn">Get Kit Price</a>
                 </div>
             </div>
@@ -194,6 +185,11 @@
                 <div class="p-details">
                     <h4>Construction Kit</h4>
                     <p class="kit-desc">Overall + Reflective Vest + Cap</p>
+                    <ul class="spec-list">
+                        <li>Material: 100% Cotton Workwear</li>
+                        <li>Safety: High-Vis Reflective</li>
+                        <li>Branding: Screen Print Ready</li>
+                    </ul>
                     <a href="https://wa.me/263778279401?text=Quote%20for%20Construction%20Kit" class="wa-btn">Get Kit Price</a>
                 </div>
             </div>
@@ -203,6 +199,11 @@
                 <div class="p-details">
                     <h4>Corporate Image Kit</h4>
                     <p class="kit-desc">Branded Shirt + Trousers + Blazer</p>
+                    <ul class="spec-list">
+                        <li>Fabric: Premium Suiting</li>
+                        <li>Cut: Tailored / Slim Fit</li>
+                        <li>Branding: Embroidery</li>
+                    </ul>
                     <a href="https://wa.me/263778279401?text=Quote%20for%20Corporate%20Kit" class="wa-btn">Get Kit Price</a>
                 </div>
             </div>
@@ -214,6 +215,11 @@
                 <div class="img-wrapper"><img src="pic12.jpg" alt="Tracksuit"></div>
                 <div class="p-details">
                     <h4>Sport Tracksuits</h4>
+                    <ul class="spec-list">
+                        <li>Fabric: Gloss / Matte Polyester</li>
+                        <li>Sizes: All School Sizes</li>
+                        <li>Colors: Custom School Colors</li>
+                    </ul>
                     <a href="https://wa.me/263778279401?text=Price%20for%20Tracksuits" class="wa-btn">Ask Price</a>
                 </div>
             </div>
@@ -221,6 +227,11 @@
                 <div class="img-wrapper"><img src="pic14.jpg" alt="Work Suit"></div>
                 <div class="p-details">
                     <h4>Work Suits</h4>
+                    <ul class="spec-list">
+                        <li>Fabric: Heavy Duty Denim / Cotton</li>
+                        <li>Features: Reinforced Pockets</li>
+                        <li>Type: 2-Piece Conti Suit</li>
+                    </ul>
                     <a href="https://wa.me/263778279401?text=Price%20for%20Work%20Suits" class="wa-btn">Ask Price</a>
                 </div>
             </div>
@@ -228,6 +239,11 @@
                 <div class="img-wrapper"><img src="scrubs.jpg" alt="Scrubs"></div>
                 <div class="p-details">
                     <h4>Medical Scrubs</h4>
+                    <ul class="spec-list">
+                        <li>Fabric: Anti-microbial Blend</li>
+                        <li>Fit: Unisex Comfort Fit</li>
+                        <li>Colors: Blue, Green, Maroon</li>
+                    </ul>
                     <a href="https://wa.me/263778279401?text=Price%20for%20Scrubs" class="wa-btn">Ask Price</a>
                 </div>
             </div>
@@ -235,6 +251,10 @@
                 <div class="img-wrapper"><img src="pic13.jpg" alt="Office Wear"></div>
                 <div class="p-details">
                     <h4>Office Wear</h4>
+                    <ul class="spec-list">
+                        <li>Fabric: Breathable Cotton Blend</li>
+                        <li>Style: Formal / Semi-Formal</li>
+                    </ul>
                     <a href="https://wa.me/263778279401?text=Price%20for%20Office%20Wear" class="wa-btn">Ask Price</a>
                 </div>
             </div>
@@ -242,6 +262,10 @@
                 <div class="img-wrapper"><img src="pic15.jpg" alt="School Wear"></div>
                 <div class="p-details">
                     <h4>School Wear</h4>
+                    <ul class="spec-list">
+                        <li>Item: Dresses / Tunics / Shirts</li>
+                        <li>Durability: High</li>
+                    </ul>
                     <a href="https://wa.me/263778279401?text=Price%20for%20School%20Wear" class="wa-btn">Ask Price</a>
                 </div>
             </div>
@@ -249,9 +273,21 @@
                 <div class="img-wrapper"><img src="pic10.jpg" alt="Industrial Gear"></div>
                 <div class="p-details">
                     <h4>Industrial Gear</h4>
+                    <ul class="spec-list">
+                        <li>Type: Protective Outerwear</li>
+                        <li>Standards: ISO Certified</li>
+                    </ul>
                     <a href="https://wa.me/263778279401?text=Price%20for%20Industrial%20Gear" class="wa-btn">Ask Price</a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background: #eef2f5; text-align: center;">
+        <div class="section-title">
+            <h2>Need Bulk Pricing?</h2>
+            <p>Send quantities once. Get a structured quote within 24 hours.</p>
+            <a href="#quote-form" class="btn-primary" style="margin-top: 20px; display: inline-block;">Request Official Quote</a>
         </div>
     </section>
 
@@ -270,9 +306,21 @@
         </div>
     </section>
 
+    <section class="section-padding">
+        <div class="section-title">
+            <h2>Why Institutions Choose Sheilron</h2>
+        </div>
+        <div class="trust-bar" style="background: transparent; border: none;">
+            <div class="trust-item">✔ Local Factory Production</div>
+            <div class="trust-item">✔ Contract Supply Experience</div>
+            <div class="trust-item">✔ Consistent Sizing & QC</div>
+            <div class="trust-item">✔ Zimbabwe-Based Support</div>
+        </div>
+    </section>
+
     <section id="quote-form" class="section-padding bg-light">
         <div class="section-title">
-            <h2>Contact Us</h2>
+            <h2>Contact Procurement</h2>
         </div>
         <div class="contact-container">
             <div class="form-box">
@@ -335,15 +383,6 @@
         <div class="copyright">© 2026 Sheilron Clothing Pvt Ltd.</div>
     </section>
 
-    <div id="cookieBanner" class="cookie-banner">
-        <div class="cookie-content">
-            <p>We use cookies to improve your experience.</p>
-            <div class="cookie-btns">
-                <button onclick="acceptCookies()" class="btn-accept">Accept</button>
-            </div>
-        </div>
-    </div>
-
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeLogin()">×</span>
@@ -358,9 +397,7 @@
                     <input type="email" id="loginEmail" placeholder="Email Address" class="login-input">
                     <input type="password" id="loginPass" placeholder="Password" class="login-input">
                     <button class="login-submit black-btn" onclick="emailLogin()">SIGN IN</button>
-                    
                     <div class="divider"><span>OR</span></div>
-                    
                     <button class="google-btn" onclick="googleLogin()">
                         <i class="fa-brands fa-google"></i> Continue with Google
                     </button>
@@ -392,19 +429,15 @@
     <a href="https://wa.me/263778279401" class="float-wa"><i class="fa-brands fa-whatsapp"></i></a>
 
     <script>
-        // Menu
-        document.getElementById('mobile-menu').addEventListener('click', () => {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
+        const menuBtn = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        menuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); });
 
-        // Tab Switcher for Login
         window.switchTab = (tab) => {
             const signin = document.getElementById('signinForm');
             const reg = document.getElementById('registerForm');
             const tabs = document.querySelectorAll('.tab-btn');
-            
             tabs.forEach(t => t.classList.remove('active'));
-            
             if(tab === 'signin') {
                 signin.style.display = 'block';
                 reg.style.display = 'none';
@@ -416,33 +449,26 @@
             }
         }
 
-        // Filter Logic
-        function filterSelection(c) {
-            var x, i;
-            x = document.getElementsByClassName("filter-item");
+        // FIXED FILTER LOGIC
+        window.filterSelection = (c, el) => {
+            const items = document.getElementsByClassName("filter-item");
             if (c == "all") c = "";
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-                if (x[i].className.indexOf(c) > -1) x[i].style.display = "block";
+            for (let i = 0; i < items.length; i++) {
+                items[i].style.display = "none";
+                if (items[i].className.indexOf(c) > -1) items[i].style.display = "block";
             }
-            var btns = document.getElementsByClassName("filter-pill");
-            for (i = 0; i < btns.length; i++) { btns[i].classList.remove("active"); }
-            event.currentTarget.classList.add("active");
+            // Update Active State
+            const btns = document.getElementsByClassName("filter-pill");
+            for (let i = 0; i < btns.length; i++) { btns[i].classList.remove("active"); }
+            el.classList.add("active");
         }
-        filterSelection("all");
+        
+        // Initial load
+        const allBtn = document.querySelector('.filter-pill'); 
+        if(allBtn) window.filterSelection('all', allBtn);
 
-        // Modal
         function openLogin() { document.getElementById('loginModal').style.display = 'flex'; }
         function closeLogin() { document.getElementById('loginModal').style.display = 'none'; }
-        
-        // Cookies
-        function acceptCookies() {
-            document.getElementById('cookieBanner').style.display = 'none';
-            localStorage.setItem('cookiesAccepted', 'true');
-        }
-        if (!localStorage.getItem('cookiesAccepted')) {
-            document.getElementById('cookieBanner').style.display = 'flex';
-        }
     </script>
 </body>
 </html>
