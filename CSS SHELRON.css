@@ -85,7 +85,7 @@ header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: st
 .safety { background: #27ae60; }
 .premium { background: var(--blue); }
 
-/* --- SPECS LIST (NEW) --- */
+/* --- SPECS LIST --- */
 .spec-list { list-style: none; padding: 0; margin-bottom: 15px; font-size: 0.8rem; color: #666; text-align: left; background: #f9f9f9; padding: 8px; border-radius: 4px; }
 .spec-list li { margin-bottom: 3px; }
 
