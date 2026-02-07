@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sheilron Clothing | Custom Uniform Manufacturers</title>
+    <title>Sheilron Clothing | Manufacturing Identity</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -27,7 +27,6 @@
         const auth = getAuth(app);
         const provider = new GoogleAuthProvider();
 
-        // Attach functions to window for global access
         window.googleLogin = () => {
             signInWithPopup(auth, provider).then(() => closeLogin()).catch(e => alert(e.message));
         };
@@ -179,6 +178,7 @@
                     <a href="https://wa.me/263778279401?text=Quote%20for%20School%20Starter%20Kit" class="wa-btn">Get Kit Price</a>
                 </div>
             </div>
+
             <div class="product-card filter-item safety">
                 <span class="prod-badge safety">Safety Rated</span>
                 <div class="img-wrapper"><img src="pic%204.jpg" alt="Construction Kit"></div>
@@ -193,6 +193,7 @@
                     <a href="https://wa.me/263778279401?text=Quote%20for%20Construction%20Kit" class="wa-btn">Get Kit Price</a>
                 </div>
             </div>
+
             <div class="product-card filter-item corporate">
                 <span class="prod-badge premium">Premium</span>
                 <div class="img-wrapper"><img src="blazer.jpg" alt="Corporate Kit"></div>
@@ -211,6 +212,7 @@
 
         <h3 class="cat-header">Individual Items</h3>
         <div class="catalog-grid">
+            
             <div class="product-card filter-item school">
                 <div class="img-wrapper"><img src="pic12.jpg" alt="Tracksuit"></div>
                 <div class="p-details">
@@ -223,6 +225,7 @@
                     <a href="https://wa.me/263778279401?text=Price%20for%20Tracksuits" class="wa-btn">Ask Price</a>
                 </div>
             </div>
+
             <div class="product-card filter-item safety">
                 <div class="img-wrapper"><img src="pic14.jpg" alt="Work Suit"></div>
                 <div class="p-details">
@@ -235,6 +238,7 @@
                     <a href="https://wa.me/263778279401?text=Price%20for%20Work%20Suits" class="wa-btn">Ask Price</a>
                 </div>
             </div>
+
             <div class="product-card filter-item medical">
                 <div class="img-wrapper"><img src="scrubs.jpg" alt="Scrubs"></div>
                 <div class="p-details">
@@ -247,37 +251,43 @@
                     <a href="https://wa.me/263778279401?text=Price%20for%20Scrubs" class="wa-btn">Ask Price</a>
                 </div>
             </div>
-            <div class="product-card filter-item corporate">
-                <div class="img-wrapper"><img src="pic13.jpg" alt="Office Wear"></div>
+
+            <div class="product-card filter-item corporate safety">
+                <div class="img-wrapper"><img src="pic13.jpg" alt="Industrial Shirt"></div>
                 <div class="p-details">
-                    <h4>Office Wear</h4>
+                    <h4>Industrial Staff Wear</h4>
                     <ul class="spec-list">
-                        <li>Fabric: Breathable Cotton Blend</li>
-                        <li>Style: Formal / Semi-Formal</li>
+                        <li>Fabric: Durable Cotton Blend</li>
+                        <li>Use: Mechanics / Factory Staff</li>
+                        <li>Design: Two-Tone High Visibility</li>
                     </ul>
-                    <a href="https://wa.me/263778279401?text=Price%20for%20Office%20Wear" class="wa-btn">Ask Price</a>
+                    <a href="https://wa.me/263778279401?text=Price%20for%20Industrial%20Wear" class="wa-btn">Ask Price</a>
                 </div>
             </div>
-            <div class="product-card filter-item school">
+
+            <div class="product-card filter-item school corporate">
                 <div class="img-wrapper"><img src="pic15.jpg" alt="School Wear"></div>
                 <div class="p-details">
-                    <h4>School Wear</h4>
+                    <h4>School & Staff Wear</h4>
                     <ul class="spec-list">
-                        <li>Item: Dresses / Tunics / Shirts</li>
-                        <li>Durability: High</li>
+                        <li>Items: Shirts / Tunics / Dresses</li>
+                        <li>Durability: High Traffic Use</li>
+                        <li>Sizes: Custom Sizing Available</li>
                     </ul>
                     <a href="https://wa.me/263778279401?text=Price%20for%20School%20Wear" class="wa-btn">Ask Price</a>
                 </div>
             </div>
-            <div class="product-card filter-item safety">
-                <div class="img-wrapper"><img src="pic10.jpg" alt="Industrial Gear"></div>
+
+            <div class="product-card filter-item safety corporate">
+                <div class="img-wrapper"><img src="pic10.jpg" alt="Executive Jacket"></div>
                 <div class="p-details">
-                    <h4>Industrial Gear</h4>
+                    <h4>Executive Safety Jackets</h4>
                     <ul class="spec-list">
                         <li>Type: Protective Outerwear</li>
                         <li>Standards: ISO Certified</li>
+                        <li>Look: Professional Site Wear</li>
                     </ul>
-                    <a href="https://wa.me/263778279401?text=Price%20for%20Industrial%20Gear" class="wa-btn">Ask Price</a>
+                    <a href="https://wa.me/263778279401?text=Price%20for%20Executive%20Jackets" class="wa-btn">Ask Price</a>
                 </div>
             </div>
         </div>
@@ -383,6 +393,15 @@
         <div class="copyright">© 2026 Sheilron Clothing Pvt Ltd.</div>
     </section>
 
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>We use cookies to improve your experience.</p>
+            <div class="cookie-btns">
+                <button onclick="acceptCookies()" class="btn-accept">Accept</button>
+            </div>
+        </div>
+    </div>
+
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeLogin()">×</span>
@@ -449,7 +468,6 @@
             }
         }
 
-        // FIXED FILTER LOGIC
         window.filterSelection = (c, el) => {
             const items = document.getElementsByClassName("filter-item");
             if (c == "all") c = "";
@@ -457,18 +475,23 @@
                 items[i].style.display = "none";
                 if (items[i].className.indexOf(c) > -1) items[i].style.display = "block";
             }
-            // Update Active State
             const btns = document.getElementsByClassName("filter-pill");
             for (let i = 0; i < btns.length; i++) { btns[i].classList.remove("active"); }
             el.classList.add("active");
         }
-        
-        // Initial load
         const allBtn = document.querySelector('.filter-pill'); 
         if(allBtn) window.filterSelection('all', allBtn);
 
         function openLogin() { document.getElementById('loginModal').style.display = 'flex'; }
         function closeLogin() { document.getElementById('loginModal').style.display = 'none'; }
+        
+        function acceptCookies() {
+            document.getElementById('cookieBanner').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+        if (!localStorage.getItem('cookiesAccepted')) {
+            document.getElementById('cookieBanner').style.display = 'flex';
+        }
     </script>
 </body>
 </html>
