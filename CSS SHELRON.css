@@ -2,7 +2,7 @@
 :root {
     --blue: #1a237e;
     --red: #d32f2f;
-    --dark: #222; /* Darker black for Shein feel */
+    --dark: #222;
     --light: #f4f6f8;
     --wa: #25d366;
     --border: #e0e0e0;
@@ -30,10 +30,10 @@ header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: st
     .menu-toggle { display: flex; }
 }
 
-/* --- HERO --- */
-.hero { background: url('pic%201.jpg') center/cover; height: 60vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
+/* --- HERO (Fixed Height) --- */
+.hero { background: url('pic%201.jpg') center/cover; min-height: 60vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 40px 20px; }
 .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(26, 35, 126, 0.85); }
-.hero-content { position: relative; z-index: 1; max-width: 700px; padding: 20px; }
+.hero-content { position: relative; z-index: 1; max-width: 700px; }
 .hero-badge { background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
 .hero h1 { font-size: 2.5rem; margin: 15px 0; text-transform: uppercase; }
 .hero-btns { display: flex; gap: 15px; justify-content: center; }
@@ -78,12 +78,16 @@ header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: st
 .product-card:hover img { transform: scale(1.05); }
 .p-details { padding: 15px; text-align: center; }
 .p-details h4 { margin-bottom: 5px; color: var(--dark); }
-.kit-desc { font-size: 0.85rem; color: #777; margin-bottom: 15px; font-style: italic; }
+.kit-desc { font-size: 0.85rem; color: #777; margin-bottom: 5px; font-style: italic; }
 .wa-btn { background: var(--wa); color: white; padding: 8px 0; border-radius: 5px; text-decoration: none; font-size: 0.9rem; display: block; width: 100%; font-weight: 600; }
 .prod-badge { position: absolute; top: 10px; left: 10px; color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; z-index: 2; }
 .discount { background: #e67e22; }
 .safety { background: #27ae60; }
 .premium { background: var(--blue); }
+
+/* --- SPECS LIST (NEW) --- */
+.spec-list { list-style: none; padding: 0; margin-bottom: 15px; font-size: 0.8rem; color: #666; text-align: left; background: #f9f9f9; padding: 8px; border-radius: 4px; }
+.spec-list li { margin-bottom: 3px; }
 
 /* --- ADDONS GRID --- */
 .addons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
@@ -91,14 +95,14 @@ header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: st
 .addon-item i { font-size: 1.8rem; color: var(--blue); margin-bottom: 10px; }
 .addon-item p { font-size: 0.85rem; font-weight: 600; }
 
-/* --- QUOTE FORM & INFO --- */
+/* --- QUOTE FORM --- */
 .contact-container { display: flex; flex-wrap: wrap; gap: 40px; max-width: 1200px; margin: 0 auto; }
 .form-box { flex: 2; min-width: 300px; }
 .info-box { flex: 1; min-width: 250px; background: #fff; padding: 30px; border-radius: 10px; border: 1px solid #eee; }
 .form-group { margin-bottom: 15px; }
 .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
 
-/* --- OPERATING HOURS (NEW) --- */
+/* --- OPERATING HOURS --- */
 .hours-box { background: #f9f9f9; padding: 15px; border-radius: 5px; margin-top: 20px; }
 .hours-box h4 { margin-bottom: 10px; color: var(--blue); }
 .hours-box ul { list-style: none; padding: 0; }
@@ -108,25 +112,21 @@ header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: st
 /* --- MAP --- */
 .map-container { margin-top: 20px; border-radius: 8px; overflow: hidden; }
 
-/* --- LOGIN MODAL (SHEIN STYLE) --- */
+/* --- LOGIN MODAL --- */
 .modal { display: none; position: fixed; z-index: 6000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
 .modal-content { background: white; padding: 0; width: 90%; max-width: 400px; border-radius: 8px; position: relative; text-align: center; overflow: hidden; }
 .close { position: absolute; top: 10px; right: 15px; font-size: 30px; cursor: pointer; z-index: 10; }
-
 .auth-tabs { display: flex; border-bottom: 1px solid #eee; }
 .tab-btn { flex: 1; padding: 15px; background: #fff; border: none; font-weight: 600; cursor: pointer; color: #888; transition: 0.3s; }
 .tab-btn.active { color: var(--dark); border-bottom: 2px solid var(--dark); }
-
 .auth-form { padding: 30px; }
 .login-input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; }
 .black-btn { width: 100%; padding: 12px; background: var(--dark); color: white; border: none; font-weight: 600; cursor: pointer; }
 .black-btn:hover { opacity: 0.9; }
-
 .google-btn { background: white; border: 1px solid #ccc; padding: 12px; width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; font-weight: 600; transition: 0.2s; }
 .dashboard-links { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; padding: 20px; }
 .dash-btn { background: #f5f5f5; padding: 12px; text-decoration: none; color: var(--dark); font-weight: 600; text-align: left; padding-left: 20px; border-radius: 5px; }
 .dashboard-header { background: var(--light); padding: 20px; }
-
 .divider { margin: 20px 0; position: relative; }
 .divider span { background: white; padding: 0 10px; color: #999; font-size: 0.8rem; }
 
@@ -139,12 +139,6 @@ header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: st
 .col ul li a { color: #555; text-decoration: none; }
 .socials a { font-size: 1.5rem; margin: 0 10px; color: var(--blue); }
 .copyright { color: #888; font-size: 0.8rem; }
-
-/* --- COOKIE BANNER --- */
-.cookie-banner { position: fixed; bottom: 0; left: 0; width: 100%; background: #fff; border-top: 1px solid #ccc; padding: 20px 5%; box-shadow: 0 -5px 20px rgba(0,0,0,0.1); z-index: 5000; display: none; align-items: center; justify-content: center; }
-.cookie-content { max-width: 1200px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; width: 100%; }
-.cookie-content p { font-size: 0.9rem; color: #555; flex: 1; }
-.btn-accept { background: var(--dark); color: white; border: none; padding: 10px 25px; cursor: pointer; font-weight: 600; }
 
 /* --- FLOAT WA --- */
 .float-wa { position: fixed; bottom: 80px; right: 20px; width: 60px; height: 60px; background: var(--wa); color: white; border-radius: 50%; font-size: 30px; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 4000; }
